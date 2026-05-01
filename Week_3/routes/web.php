@@ -1,0 +1,33 @@
+<?php
+
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Registration;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\GroceryShop;
+
+Route::get('/get-items',[GroceryShop::Class, 'getitems']);
+
+
+Route::get('/send-email', [MailController::class,'sendemail']);
+
+
+
+Route::view('/login', 'loginpage');
+Route::post('/loginsubmit', [LoginController::class, 'login']);
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/hello', function () {
+    return view('masterfile');
+});
+
+Route::get('/lpu/signup/2026', function(){
+    return view('signup');
+})->name('sign');
+
+
+Route::view('/registration', 'registration')->name('registration');
+Route::post('/submit', [Registration::class,'register']);
