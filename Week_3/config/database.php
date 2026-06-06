@@ -17,7 +17,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION','mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -62,6 +62,18 @@ return [
             'options' => extension_loaded('pdo_mysql') ? array_filter([
                 (PHP_VERSION_ID >= 80500 ? Mysql::ATTR_SSL_CA : PDO::MYSQL_ATTR_SSL_CA) => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
+        ],
+
+        'mongodb' => [
+            'driver'   => 'mongodb',
+            'host'     => env('DB_HOST', '127.0.0.1'),
+            'port'     => env('DB_PORT', 27017),
+            'database' => env('DB_DATABASE', 'php_learning'),
+            'username' => env('DB_USERNAME', ''),
+            'password' => env('DB_PASSWORD', ''),
+            'options'  => [
+                'database' => env('DB_AUTH_DATABASE', 'admin'),
+            ],
         ],
 
         'mariadb' => [

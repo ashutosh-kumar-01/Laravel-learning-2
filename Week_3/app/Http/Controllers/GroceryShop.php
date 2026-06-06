@@ -7,7 +7,7 @@ use App\Models\Item;
 
 class GroceryShop extends Controller
 {
-    public function getitems(){
+    // public function getitems(){
         // $items=\App\Models\Item::all();
         // $items=Item::select('name','price')->get();
         // $items=Item::where('price','>',50)->where('quantity','=',35)->get();
@@ -35,5 +35,13 @@ class GroceryShop extends Controller
         // $items = Item::all();
         // return $items;
         // return "Fetch the items from the database";
+    // }
+
+
+    public function getitems()
+    {
+        $items = Item::all();
+
+        return view('groceryshop', compact('items'));
     }
 }

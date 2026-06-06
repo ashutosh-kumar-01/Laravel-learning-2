@@ -5,8 +5,9 @@ use App\Http\Controllers\Registration;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\GroceryShop;
+use App\Http\Controllers\University;
 
-Route::get('/get-items',[GroceryShop::Class, 'getitems']);
+Route::get('/get-items',[GroceryShop::class, 'getitems']);
 
 
 Route::get('/send-email', [MailController::class,'sendemail']);
@@ -31,3 +32,9 @@ Route::get('/lpu/signup/2026', function(){
 
 Route::view('/registration', 'registration')->name('registration');
 Route::post('/submit', [Registration::class,'register']);
+
+
+// for mongodb database connection 
+Route::get('/get-info',[University::class, 'index']);
+
+// 
